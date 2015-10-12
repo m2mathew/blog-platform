@@ -1,5 +1,9 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Backbone = require('backbone');
+
+window.$ = require('jquery');
+window.jQuery = $;
 
 module.exports = React.createClass({
     componentWillMount: function() {
@@ -12,42 +16,25 @@ module.exports = React.createClass({
         var currentPage = Backbone.history.getFragment();
 
         var links = [
-            <li key="home" className={currentPage === '' ? 'active' : ''}><a href="#">Top Stories</a></li>,
+            <span key="home" className={currentPage === '' ? 'active nav-link' : 'nav-link'}><a href="#">Top Stories</a></span>,
+            <span key="add" className={currentPage === 'write' ? 'active nav-link' : 'nav-link'}><a href="#write">Write a Story</a></span>
         ];
 
         if(currentUser) {
-            links.push(<li key="add" className={currentPage === 'add' ? 'active' : ''}><a href="#add">Write a Story</a></li>)
-            links.push(<li className="nav-link" key="logout"><a href="#logout" onClick={this.onLogout}>Logout</a></li>)
-            links.push(<li key="username" className="displayedUser">{currentUser.getEmail()}</li>);
+            links.push(<span className="nav-link" key="logout"><a href="#logout" onClick={this.onLogout}>Logout</a></span>)
+            links.push(<span key="username" className="displayedUser">{currentUser.getEmail()}</span>);
         }
         else {
-            links.push(<li key="login" className={currentPage === 'login' ? 'active' : ''}><a href="#login">Sign in/Sign up</a></li>);
+            links.push(<span key="login" className={currentPage === 'login' ? 'active nav-link' : 'nav-link'}><a href="#login">Sign in/Sign up</a></span>);
         }
 
         return (
-            <header className="navigation" role="banner">
-              <div className="navigation-wrapper">
-                <a href="javascript:void(0)" className="logo">
-                  <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image"/>
-                </a>
-                <a href="jcdavascript:void(0)" className="navigation-menu-button" id="js-mobile-menu">MENU</a>
-                <nav role="navigation">
-                  <ul id="js-navigation-menu" className="navigation-menu show">
+            <div className="nav-wrapper">
+                <h1><a href="#!" className="brand-logo">WE·blog</a></h1>
+                <div className="nav-link-box">
                     {links}
-                  </ul>
-                </nav>
-                <div className="navigation-tools">
-                    <div className="search-bar">
-                    <form role="search">
-                      <input type="search" placeholder="Enter Search" />
-                      <button type="submit">
-                        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon"/>
-                      </button>
-                    </form>
-                  </div>
                 </div>
-              </div>
-            </header>
+            </div>
         );
     },
     onLogout: function(e) {

@@ -21,9 +21,10 @@ var Router = Backbone.Router.extend({
     routes: {
         '': 'home',
         'top': 'home',
-        'write': 'writeStory',
+        'write': 'write',
         'login': 'login',
-        'about': 'about'
+        'about': 'about',
+        'details': 'details'
     },
     home: function() {
         ReactDOM.render(
@@ -40,14 +41,14 @@ var Router = Backbone.Router.extend({
         }
         else {
             ReactDOM.render(
-                <WriteComponent />,
+                <WriteComponent router={r} />,
                 app
             );
         }
     },
     login: function() {
         ReactDOM.render(
-            <LoginComponent />,
+            <LoginComponent router={r} />,
             app
         );
     },

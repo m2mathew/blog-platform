@@ -1,13 +1,86 @@
-@import 'base/reset',
-        '../node_modules/bourbon/app/assets/stylesheets/bourbon',
-        '../node_modules/bourbon-neat/app/assets/stylesheets/neat',
-        'base/base',
-        'navStyle';
+@import 'normalize.scss';
 
-// Color scheme from colorhunt.co
-$teal: #A9EEE6;
-$peach: #FEFAEC;
-$pink: #F9A1BC;
-$plum: #625772;
+// colors for blog theme
+$pink: #E368D6;
+$green: #02B875;
+$lightGrey: #EEE;
 
+body {
+    font-family: 'Noto Sans', sans-serif;
+    color: #000;
+    background-color: #fff;;
+}
 
+main {
+    background-color: #fff;
+    margin: 2em 1em;
+    padding: 2em;
+    border: 1px solid #555;
+}
+
+.nav-wrapper {
+    background-color: #fff;
+    color: #000;
+    border-bottom: 1px solid #eee;
+    border-top: 16px solid $pink;
+
+    .brand-logo {
+        padding-left: 1em;
+    }
+
+    .nav-link-box {
+        text-align: right;
+
+        .active {
+            background-color: $lightGrey;
+        }
+
+        .nav-link {
+            margin-right: 1em;
+            padding-bottom: 0.5em;
+            border: 1px solid #aaa;
+            border-radius: 25px;
+            padding: 0.25em;
+        }
+
+        .displayedUser {
+            margin-right: 1em;
+            padding-bottom: 0.5em;
+        }
+
+    }
+}
+
+.footer-box {
+    background-color: $lightGrey;
+    border-top: 1px solid #555;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.error-box {
+    color: #F44336;
+}
+
+.story-container {
+
+    .each-story {
+        padding: 1em;
+
+        .story-title {
+            margin: 0.25em 0 0.5em 0;
+        }
+
+        .job-row-time-stamp {
+            color: #bbb;
+            font-size: 0.8em;
+        }
+
+        .story-preview {
+
+        }
+    }
+}
