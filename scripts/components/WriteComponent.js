@@ -9,7 +9,7 @@ module.exports = React.createClass({
         return { error: null };
     },
     render: function() {
-        var errorElement = null;
+        var errorElement = null;x
         if(this.state.error) {
             errorElement = (
                 <p className="error-box">{this.state.error}</p>
