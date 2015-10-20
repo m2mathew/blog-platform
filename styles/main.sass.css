@@ -368,7 +368,8 @@ main {
   background-color: #fff;
   margin: 2em 1em;
   padding: 2em;
-  border: 1px solid #432E63; }
+  border: 1px solid #432E63;
+  box-shadow: 1px 1px 4px #432E63; }
 
 .nav-wrapper {
   background-color: #F4EBDF;
@@ -396,7 +397,9 @@ main {
 
 .footer-box {
   background-color: #EEE;
-  border-top: 1px solid #555; }
+  border-top: 1px solid #555;
+  padding-left: 2em;
+  padding-top: 1em; }
 
 a {
   text-decoration: none;
