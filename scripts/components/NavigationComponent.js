@@ -17,10 +17,10 @@ module.exports = React.createClass({
 
         var links = [
             <a href="#" key="home"><div className={currentPage === '' ? 'active nav-link' : 'nav-link'}>Top Stories</div></a>,
-            <a href="#write" key="add"><div className={currentPage === 'write' ? 'active nav-link' : 'nav-link'}>Write a Story</div></a>
         ];
 
         if(currentUser) {
+            links.push(<a href="#write" key="add"><div className={currentPage === 'write' ? 'active nav-link' : 'nav-link'}>Write a Story</div></a>);
             links.push(<a href="#logout" key="logout" onClick={this.onLogout}><div className="nav-link">Logout</div></a>);
             links.push(<div key="username" className="displayedUser">{currentUser.getEmail()}</div>);
         }

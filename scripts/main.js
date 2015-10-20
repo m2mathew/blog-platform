@@ -12,6 +12,7 @@ var HomeComponent = require('./components/HomeComponent');
 var NavigationComponent = require('./components/NavigationComponent');
 var LoginComponent = require('./components/LoginComponent');
 var WriteComponent = require('./components/WriteComponent');
+var DetailsComponent = require('./components/DetailsComponent');
 var FooterComponent = require('./components/FooterComponent');
 var AboutComponent = require('./components/AboutComponent');
 
@@ -24,11 +25,11 @@ var Router = Backbone.Router.extend({
         'write': 'write',
         'login': 'login',
         'about': 'about',
-        'details': 'details'
+        'details/:id': 'details'
     },
     home: function() {
         ReactDOM.render(
-            <HomeComponent />,
+            <HomeComponent router={r} />,
             app
         );
     },
@@ -55,6 +56,12 @@ var Router = Backbone.Router.extend({
     about: function() {
         ReactDOM.render(
             <AboutComponent />,
+            app
+        );
+    },
+    details: function(id) {
+        ReactDOM.render(
+            <DetailsComponent post={id} />,
             app
         );
     }

@@ -20,12 +20,13 @@ module.exports = React.createClass({
                         <h1>Register</h1>
                         {errorElement}
                         <div className="email-input">
+                            <p><label htmlFor="email">Email Address</label></p>
                             <input type="text" ref="email" className="validate" id="email" />
-                            <label htmlFor="email">Email Address</label>
+
                         </div>
                         <div className="password-input">
+                            <p><label htmlFor="password">Password</label></p>
                             <input type="password" ref="password" className="validate" id="password" />
-                            <label htmlFor="password">Password</label>
                         </div>
                         <div className="button-container">
                             <button className="register-button">Register</button>
@@ -37,12 +38,12 @@ module.exports = React.createClass({
                         <h1>Login</h1>
                         {errorElement}
                         <div className="email-input">
+                            <p><label htmlFor="email">Email Address</label></p>
                             <input type="text" ref="email" className="validate" id="email" />
-                            <label htmlFor="email">Email Address</label>
                         </div>
                         <div className="password-input">
+                            <p><label htmlFor="password">Password</label></p>
                             <input type="password" ref="password" className="validate" id="password" />
-                            <label htmlFor="password">Password</label>
                         </div>
                         <div className="button-container">
                             <button className="register-button">Login</button>

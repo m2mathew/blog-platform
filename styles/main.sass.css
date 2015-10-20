@@ -368,7 +368,7 @@ main {
   background-color: #fff;
   margin: 2em 1em;
   padding: 2em;
-  border: 1px solid #555; }
+  border: 1px solid #432E63; }
 
 .nav-wrapper {
   background-color: #F4EBDF;
@@ -382,17 +382,17 @@ main {
   .nav-wrapper .nav-link-box {
     text-align: right; }
     .nav-wrapper .nav-link-box .active {
-      border: 1px solid #432E63; }
+      border-bottom: 1px solid #432E63; }
     .nav-wrapper .nav-link-box .nav-link {
       margin-right: 1em;
       padding-bottom: 0.5em;
-      border: 1px solid #aaa;
-      border-radius: 25px;
       padding: 0.25em;
-      float: right; }
+      float: right;
+      font-size: 1.25em; }
     .nav-wrapper .nav-link-box .displayedUser {
       margin-right: 1em;
-      padding-bottom: 0.5em; }
+      padding-bottom: 0.5em;
+      float: right; }
 
 .footer-box {
   background-color: #EEE;
@@ -401,6 +401,8 @@ main {
 a {
   text-decoration: none;
   color: #000; }
+  a:hover {
+    color: #aaa; }
 
 .error-box {
   color: #F44336; }
@@ -412,3 +414,18 @@ a {
   .story-container .each-story .job-row-time-stamp {
     color: #bbb;
     font-size: 0.8em; }
+
+input {
+  width: 50%;
+  margin-bottom: 1em; }
+
+button {
+  background-color: #432E63;
+  color: #EEE;
+  border: 1px solid #555;
+  box-shadow: 1px 1px 2px #432E63;
+  margin-top: 1em;
+  padding: 0.5em 1.5em; }
+
+.register-box:first-child {
+  margin-bottom: 3em; }

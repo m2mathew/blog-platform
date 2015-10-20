@@ -34915,13 +34915,99 @@ module.exports = React.createClass({
             React.createElement(
                 'h1',
                 null,
-                'A little about us'
+                'A little about me'
+            ),
+            React.createElement(
+                'p',
+                null,
+                'I enjoy learning new things and learning to code'
+            ),
+            React.createElement(
+                'p',
+                null,
+                'Follow my adventures at ',
+                React.createElement(
+                    'a',
+                    { href: 'http://www.drumsensei.com/' },
+                    'Drumsensei.com'
+                )
             )
         );
     }
 });
 
 },{"backbone":1,"react":161,"react-dom":6}],163:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var ReactDOM = require('react-dom');
+var Backbone = require('backbone');
+var moment = require('moment');
+var BlogModel = require('../models/BlogModel');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	getInitialState: function getInitialState() {
+		return {
+			singleStory: null
+		};
+	},
+	componentWillMount: function componentWillMount() {
+		var _this = this;
+
+		var query = new Parse.Query(BlogModel);
+		query.get(this.props.post).then(function (story) {
+			_this.setState({ singleStory: story });
+		}, function (err) {
+			console.log(err);
+		});
+	},
+	render: function render() {
+
+		var content = React.createElement(
+			'p',
+			null,
+			'loading...'
+		);
+
+		if (this.state.singleStory) {
+			var dateCreated = this.state.singleStory.get('createdAt');
+			content = React.createElement(
+				'div',
+				null,
+				React.createElement(
+					'span',
+					{ className: 'job-row-time-stamp' },
+					moment(dateCreated).fromNow()
+				),
+				React.createElement(
+					'h1',
+					null,
+					this.state.singleStory.get('title')
+				),
+				React.createElement(
+					'div',
+					null,
+					this.state.singleStory.get('story')
+				),
+				React.createElement(
+					'div',
+					null,
+					this.state.singleStory.get('tag')
+				)
+			);
+		}
+
+		return React.createElement(
+			'div',
+			{ className: 'details-box' },
+			content
+		);
+	}
+});
+
+},{"../models/BlogModel":170,"backbone":1,"moment":5,"react":161,"react-dom":6}],164:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34949,7 +35035,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"backbone":1,"react":161,"react-dom":6}],164:[function(require,module,exports){
+},{"backbone":1,"react":161,"react-dom":6}],165:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -34995,6 +35081,7 @@ module.exports = React.createClass({
             content = this.state.stories.map(function (story) {
                 var storyShort = shorten(story.get('story'), 140);
                 var dateCreated = story.get('createdAt');
+                var id = story.get('objectId');
                 return React.createElement(
                     'div',
                     { key: story.id, className: 'each-story' },
@@ -35008,7 +35095,7 @@ module.exports = React.createClass({
                         { className: 'story-title' },
                         React.createElement(
                             'a',
-                            { href: '#details' },
+                            { href: "#details/" + story.id },
                             story.get('title')
                         )
                     ),
@@ -35043,10 +35130,23 @@ module.exports = React.createClass({
                 content
             )
         );
+    },
+    showStory: function showStory() {
+        console.log('hey, sweetie');
+
+        return React.createElement(
+            'div',
+            null,
+            React.createElement(
+                'p',
+                null,
+                'hey!'
+            )
+        );
     }
 });
 
-},{"../models/BlogModel":169,"backbone":1,"moment":5,"react":161,"react-dom":6}],165:[function(require,module,exports){
+},{"../models/BlogModel":170,"backbone":1,"moment":5,"react":161,"react-dom":6}],166:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35086,22 +35186,30 @@ module.exports = React.createClass({
                     React.createElement(
                         'div',
                         { className: 'email-input' },
-                        React.createElement('input', { type: 'text', ref: 'email', className: 'validate', id: 'email' }),
                         React.createElement(
-                            'label',
-                            { htmlFor: 'email' },
-                            'Email Address'
-                        )
+                            'p',
+                            null,
+                            React.createElement(
+                                'label',
+                                { htmlFor: 'email' },
+                                'Email Address'
+                            )
+                        ),
+                        React.createElement('input', { type: 'text', ref: 'email', className: 'validate', id: 'email' })
                     ),
                     React.createElement(
                         'div',
                         { className: 'password-input' },
-                        React.createElement('input', { type: 'password', ref: 'password', className: 'validate', id: 'password' }),
                         React.createElement(
-                            'label',
-                            { htmlFor: 'password' },
-                            'Password'
-                        )
+                            'p',
+                            null,
+                            React.createElement(
+                                'label',
+                                { htmlFor: 'password' },
+                                'Password'
+                            )
+                        ),
+                        React.createElement('input', { type: 'password', ref: 'password', className: 'validate', id: 'password' })
                     ),
                     React.createElement(
                         'div',
@@ -35129,22 +35237,30 @@ module.exports = React.createClass({
                     React.createElement(
                         'div',
                         { className: 'email-input' },
-                        React.createElement('input', { type: 'text', ref: 'email', className: 'validate', id: 'email' }),
                         React.createElement(
-                            'label',
-                            { htmlFor: 'email' },
-                            'Email Address'
-                        )
+                            'p',
+                            null,
+                            React.createElement(
+                                'label',
+                                { htmlFor: 'email' },
+                                'Email Address'
+                            )
+                        ),
+                        React.createElement('input', { type: 'text', ref: 'email', className: 'validate', id: 'email' })
                     ),
                     React.createElement(
                         'div',
                         { className: 'password-input' },
-                        React.createElement('input', { type: 'password', ref: 'password', className: 'validate', id: 'password' }),
                         React.createElement(
-                            'label',
-                            { htmlFor: 'password' },
-                            'Password'
-                        )
+                            'p',
+                            null,
+                            React.createElement(
+                                'label',
+                                { htmlFor: 'password' },
+                                'Password'
+                            )
+                        ),
+                        React.createElement('input', { type: 'password', ref: 'password', className: 'validate', id: 'password' })
                     ),
                     React.createElement(
                         'div',
@@ -35197,7 +35313,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"backbone":1,"react":161,"react-dom":6}],166:[function(require,module,exports){
+},{"backbone":1,"react":161,"react-dom":6}],167:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35229,17 +35345,18 @@ module.exports = React.createClass({
                 { className: currentPage === '' ? 'active nav-link' : 'nav-link' },
                 'Top Stories'
             )
-        ), React.createElement(
-            'a',
-            { href: '#write', key: 'add' },
-            React.createElement(
-                'div',
-                { className: currentPage === 'write' ? 'active nav-link' : 'nav-link' },
-                'Write a Story'
-            )
         )];
 
         if (currentUser) {
+            links.push(React.createElement(
+                'a',
+                { href: '#write', key: 'add' },
+                React.createElement(
+                    'div',
+                    { className: currentPage === 'write' ? 'active nav-link' : 'nav-link' },
+                    'Write a Story'
+                )
+            ));
             links.push(React.createElement(
                 'a',
                 { href: '#logout', key: 'logout', onClick: this.onLogout },
@@ -35292,7 +35409,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"backbone":1,"jquery":4,"react":161,"react-dom":6}],167:[function(require,module,exports){
+},{"backbone":1,"jquery":4,"react":161,"react-dom":6}],168:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35383,7 +35500,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../models/BlogModel":169,"backbone":1,"react":161,"react-dom":6}],168:[function(require,module,exports){
+},{"../models/BlogModel":170,"backbone":1,"react":161,"react-dom":6}],169:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35398,6 +35515,7 @@ var HomeComponent = require('./components/HomeComponent');
 var NavigationComponent = require('./components/NavigationComponent');
 var LoginComponent = require('./components/LoginComponent');
 var WriteComponent = require('./components/WriteComponent');
+var DetailsComponent = require('./components/DetailsComponent');
 var FooterComponent = require('./components/FooterComponent');
 var AboutComponent = require('./components/AboutComponent');
 
@@ -35410,10 +35528,10 @@ var Router = Backbone.Router.extend({
         'write': 'write',
         'login': 'login',
         'about': 'about',
-        'details': 'details'
+        'details/:id': 'details'
     },
     home: function home() {
-        ReactDOM.render(React.createElement(HomeComponent, null), app);
+        ReactDOM.render(React.createElement(HomeComponent, { router: r }), app);
     },
     write: function write() {
         if (!Parse.User.current()) {
@@ -35427,6 +35545,9 @@ var Router = Backbone.Router.extend({
     },
     about: function about() {
         ReactDOM.render(React.createElement(AboutComponent, null), app);
+    },
+    details: function details(id) {
+        ReactDOM.render(React.createElement(DetailsComponent, { post: id }), app);
     }
 });
 
@@ -35437,14 +35558,14 @@ ReactDOM.render(React.createElement(NavigationComponent, { router: r }), documen
 
 ReactDOM.render(React.createElement(FooterComponent, { router: r }), document.getElementById('foot'));
 
-},{"./components/AboutComponent":162,"./components/FooterComponent":163,"./components/HomeComponent":164,"./components/LoginComponent":165,"./components/NavigationComponent":166,"./components/WriteComponent":167,"backbone":1,"jquery":4,"react":161,"react-dom":6}],169:[function(require,module,exports){
+},{"./components/AboutComponent":162,"./components/DetailsComponent":163,"./components/FooterComponent":164,"./components/HomeComponent":165,"./components/LoginComponent":166,"./components/NavigationComponent":167,"./components/WriteComponent":168,"backbone":1,"jquery":4,"react":161,"react-dom":6}],170:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
     className: 'Blog'
 });
 
-},{}]},{},[168])
+},{}]},{},[169])
 
 
 //# sourceMappingURL=bundle.js.map

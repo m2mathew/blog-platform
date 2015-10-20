@@ -38,13 +38,14 @@ module.exports = React.createClass({
             content = this.state.stories.map(function(story) {
                 var storyShort = shorten(story.get('story'), 140);
                 var dateCreated = story.get('createdAt');
+                var id = story.get('objectId');
                 return (
                     <div key={story.id} className="each-story">
                         <span className="job-row-time-stamp">
                             {moment(dateCreated).fromNow()}
                         </span>
                         <h2 className="story-title">
-                            <a href="#details">{story.get('title')}</a>
+                            <a href={"#details/" + story.id}>{story.get('title')}</a>
                         </h2>
                         <div className="story-preview">{storyShort}</div>
                         <h4>{story.get('tag')}</h4>
@@ -61,6 +62,15 @@ module.exports = React.createClass({
                 <div>
                     {content}
                 </div>
+            </div>
+        );
+    },
+    showStory: function() {
+        console.log('hey, sweetie');
+
+        return (
+            <div>
+                <p>hey!</p>
             </div>
         );
     }

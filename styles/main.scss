@@ -21,7 +21,7 @@ main {
 	background-color: #fff;
 	margin: 2em 1em;
 	padding: 2em;
-	border: 1px solid #555;
+	border: 1px solid $purple;
 }
 
 .nav-wrapper {
@@ -40,21 +40,21 @@ main {
 		text-align: right;
 
 		.active {
-			border: 1px solid $purple;
+			border-bottom: 1px solid $purple;
 		}
 
 		.nav-link {
 			margin-right: 1em;
 			padding-bottom: 0.5em;
-			border: 1px solid #aaa;
-			border-radius: 25px;
 			padding: 0.25em;
 			float: right;
+			font-size: 1.25em;
 		}
 
 		.displayedUser {
 			margin-right: 1em;
 			padding-bottom: 0.5em;
+			float: right;
 		}
 	}
 }
@@ -67,6 +67,10 @@ main {
 a {
 	text-decoration: none;
 	color: #000;
+
+	&:hover {
+		color: #aaa;
+	}
 }
 
 .error-box {
@@ -91,4 +95,25 @@ a {
 
 		}
 	}
+}
+
+input {
+	width: 50%;
+	margin-bottom: 1em;
+}
+
+button {
+	background-color: $purple;
+	color: #EEE;
+	border: 1px solid #555;
+	box-shadow: 1px 1px 2px $purple;
+	margin-top: 1em;
+	padding: 0.5em 1.5em;
+}
+
+.register-box {
+
+	&:first-child {
+ 		margin-bottom: 3em;
+ 	}
 }
