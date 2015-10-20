@@ -34995,7 +34995,6 @@ module.exports = React.createClass({
             content = this.state.stories.map(function (story) {
                 var storyShort = shorten(story.get('story'), 140);
                 var dateCreated = story.get('createdAt');
-                console.log(dateCreated);
                 return React.createElement(
                     'div',
                     { key: story.id, className: 'each-story' },
@@ -35223,45 +35222,45 @@ module.exports = React.createClass({
         var currentPage = Backbone.history.getFragment();
 
         var links = [React.createElement(
-            'span',
-            { key: 'home', className: currentPage === '' ? 'active nav-link' : 'nav-link' },
+            'a',
+            { href: '#', key: 'home' },
             React.createElement(
-                'a',
-                { href: '#' },
+                'div',
+                { className: currentPage === '' ? 'active nav-link' : 'nav-link' },
                 'Top Stories'
             )
         ), React.createElement(
-            'span',
-            { key: 'add', className: currentPage === 'write' ? 'active nav-link' : 'nav-link' },
+            'a',
+            { href: '#write', key: 'add' },
             React.createElement(
-                'a',
-                { href: '#write' },
+                'div',
+                { className: currentPage === 'write' ? 'active nav-link' : 'nav-link' },
                 'Write a Story'
             )
         )];
 
         if (currentUser) {
             links.push(React.createElement(
-                'span',
-                { className: 'nav-link', key: 'logout' },
+                'a',
+                { href: '#logout', key: 'logout', onClick: this.onLogout },
                 React.createElement(
-                    'a',
-                    { href: '#logout', onClick: this.onLogout },
+                    'div',
+                    { className: 'nav-link' },
                     'Logout'
                 )
             ));
             links.push(React.createElement(
-                'span',
+                'div',
                 { key: 'username', className: 'displayedUser' },
                 currentUser.getEmail()
             ));
         } else {
             links.push(React.createElement(
-                'span',
-                { key: 'login', className: currentPage === 'login' ? 'active nav-link' : 'nav-link' },
+                'a',
+                { href: '#login', key: 'login' },
                 React.createElement(
-                    'a',
-                    { href: '#login' },
+                    'div',
+                    { className: currentPage === 'login' ? 'active nav-link' : 'nav-link' },
                     'Sign in/Sign up'
                 )
             ));
@@ -35276,7 +35275,7 @@ module.exports = React.createClass({
                 React.createElement(
                     'a',
                     { href: '#!', className: 'brand-logo' },
-                    'WE·blog'
+                    'WE·Blog'
                 )
             ),
             React.createElement(
@@ -35309,7 +35308,7 @@ module.exports = React.createClass({
         return { error: null };
     },
     render: function render() {
-        var errorElement = null;x;
+        var errorElement = null;
         if (this.state.error) {
             errorElement = React.createElement(
                 'p',

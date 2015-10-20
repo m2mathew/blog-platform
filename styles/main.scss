@@ -4,83 +4,91 @@
 $pink: #E368D6;
 $green: #02B875;
 $lightGrey: #EEE;
+$purple:  #432E63;
+$background: #F4EBDF;
 
 body {
-    font-family: 'Noto Sans', sans-serif;
-    color: #000;
-    background-color: #fff;;
+	font-family: 'Noto Sans', sans-serif;
+	color: #000;
+	background-color: $background;
+	display: flex;
+	flex-flow: column;
+	min-height: 100vh;
 }
 
 main {
-    background-color: #fff;
-    margin: 2em 1em;
-    padding: 2em;
-    border: 1px solid #555;
+	flex: 1;
+	background-color: #fff;
+	margin: 2em 1em;
+	padding: 2em;
+	border: 1px solid #555;
 }
 
 .nav-wrapper {
-    background-color: #fff;
-    color: #000;
-    border-bottom: 1px solid #eee;
-    border-top: 16px solid $pink;
+	background-color: $background;
+	color: $purple;
+	border-bottom: 1px solid #eee;
+	border-top: 16px solid $pink;
 
-    .brand-logo {
-        padding-left: 1em;
-    }
+	.brand-logo {
+		color: $purple;
+		padding-left: 1em;
+		float: left;
+	}
 
-    .nav-link-box {
-        text-align: right;
+	.nav-link-box {
+		text-align: right;
 
-        .active {
-            background-color: $lightGrey;
-        }
+		.active {
+			border: 1px solid $purple;
+		}
 
-        .nav-link {
-            margin-right: 1em;
-            padding-bottom: 0.5em;
-            border: 1px solid #aaa;
-            border-radius: 25px;
-            padding: 0.25em;
-        }
+		.nav-link {
+			margin-right: 1em;
+			padding-bottom: 0.5em;
+			border: 1px solid #aaa;
+			border-radius: 25px;
+			padding: 0.25em;
+			float: right;
+		}
 
-        .displayedUser {
-            margin-right: 1em;
-            padding-bottom: 0.5em;
-        }
-
-    }
+		.displayedUser {
+			margin-right: 1em;
+			padding-bottom: 0.5em;
+		}
+	}
 }
 
 .footer-box {
-    background-color: $lightGrey;
-    border-top: 1px solid #555;
+	background-color: $lightGrey;
+	border-top: 1px solid #555;
 }
 
 a {
-    text-decoration: none;
-    color: #000;
+	text-decoration: none;
+	color: #000;
 }
 
 .error-box {
-    color: #F44336;
+	color: #F44336;
 }
 
 .story-container {
 
-    .each-story {
-        padding: 1em;
+	.each-story {
+		padding: 1em;
 
-        .story-title {
-            margin: 0.25em 0 0.5em 0;
-        }
+		.story-title {
+			margin: 0.25em 0 0.5em 0;
+		}
 
-        .job-row-time-stamp {
-            color: #bbb;
-            font-size: 0.8em;
-        }
+		.job-row-time-stamp {
+			color: #bbb;
+			font-size: 0.8em;
+		}
 
-        .story-preview {
+		.story-preview {
 
-        }
-    }
+		}
+	}
 }

@@ -16,21 +16,21 @@ module.exports = React.createClass({
         var currentPage = Backbone.history.getFragment();
 
         var links = [
-            <span key="home" className={currentPage === '' ? 'active nav-link' : 'nav-link'}><a href="#">Top Stories</a></span>,
-            <span key="add" className={currentPage === 'write' ? 'active nav-link' : 'nav-link'}><a href="#write">Write a Story</a></span>
+            <a href="#" key="home"><div className={currentPage === '' ? 'active nav-link' : 'nav-link'}>Top Stories</div></a>,
+            <a href="#write" key="add"><div className={currentPage === 'write' ? 'active nav-link' : 'nav-link'}>Write a Story</div></a>
         ];
 
         if(currentUser) {
-            links.push(<span className="nav-link" key="logout"><a href="#logout" onClick={this.onLogout}>Logout</a></span>)
-            links.push(<span key="username" className="displayedUser">{currentUser.getEmail()}</span>);
+            links.push(<a href="#logout" key="logout" onClick={this.onLogout}><div className="nav-link">Logout</div></a>);
+            links.push(<div key="username" className="displayedUser">{currentUser.getEmail()}</div>);
         }
         else {
-            links.push(<span key="login" className={currentPage === 'login' ? 'active nav-link' : 'nav-link'}><a href="#login">Sign in/Sign up</a></span>);
+            links.push(<a href="#login" key="login"><div className={currentPage === 'login' ? 'active nav-link' : 'nav-link'}>Sign in/Sign up</div></a>);
         }
 
         return (
             <div className="nav-wrapper">
-                <h1><a href="#!" className="brand-logo">WE·blog</a></h1>
+                <h1><a href="#!" className="brand-logo">WE·Blog</a></h1>
                 <div className="nav-link-box">
                     {links}
                 </div>

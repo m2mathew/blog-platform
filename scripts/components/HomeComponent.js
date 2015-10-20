@@ -38,7 +38,6 @@ module.exports = React.createClass({
             content = this.state.stories.map(function(story) {
                 var storyShort = shorten(story.get('story'), 140);
                 var dateCreated = story.get('createdAt');
-                console.log(dateCreated);
                 return (
                     <div key={story.id} className="each-story">
                         <span className="job-row-time-stamp">

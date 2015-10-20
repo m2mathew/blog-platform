@@ -358,31 +358,38 @@ th {
 body {
   font-family: 'Noto Sans', sans-serif;
   color: #000;
-  background-color: #fff; }
+  background-color: #F4EBDF;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh; }
 
 main {
+  flex: 1;
   background-color: #fff;
   margin: 2em 1em;
   padding: 2em;
   border: 1px solid #555; }
 
 .nav-wrapper {
-  background-color: #fff;
-  color: #000;
+  background-color: #F4EBDF;
+  color: #432E63;
   border-bottom: 1px solid #eee;
   border-top: 16px solid #E368D6; }
   .nav-wrapper .brand-logo {
-    padding-left: 1em; }
+    color: #432E63;
+    padding-left: 1em;
+    float: left; }
   .nav-wrapper .nav-link-box {
     text-align: right; }
     .nav-wrapper .nav-link-box .active {
-      background-color: #EEE; }
+      border: 1px solid #432E63; }
     .nav-wrapper .nav-link-box .nav-link {
       margin-right: 1em;
       padding-bottom: 0.5em;
       border: 1px solid #aaa;
       border-radius: 25px;
-      padding: 0.25em; }
+      padding: 0.25em;
+      float: right; }
     .nav-wrapper .nav-link-box .displayedUser {
       margin-right: 1em;
       padding-bottom: 0.5em; }
