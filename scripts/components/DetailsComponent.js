@@ -28,7 +28,7 @@ module.exports = React.createClass({
 			<p>loading...</p>
 		);
 
-		if (this.state.singleStory) {
+		if(this.state.singleStory) {
 			var dateCreated = this.state.singleStory.get('createdAt');
 			content =  (
 				<div>

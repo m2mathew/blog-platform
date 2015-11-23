@@ -66,8 +66,6 @@ module.exports = React.createClass({
         );
     },
     showStory: function() {
-        console.log('hey, sweetie');
-
         return (
             <div>
                 <p>hey!</p>
