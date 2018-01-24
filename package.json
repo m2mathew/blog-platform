@@ -1,5 +1,5 @@
 {
-  "name": "new-project",
+  "name": "blog-platform",
   "description": "",
   "version": "1.0.0",
   "main": "index.html",
@@ -26,7 +26,7 @@
     "backbone": "^1.2.3",
     "bourbon": "^4.2.5",
     "bourbon-neat": "^1.7.2",
-    "jquery": "^2.1.4",
+    "jquery": "^3.0.0",
     "materialize-css": "^0.97.1",
     "moment": "^2.10.6",
     "react": "^0.14.0",
